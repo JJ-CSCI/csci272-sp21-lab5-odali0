@@ -5,7 +5,72 @@
 //------------------------------
 
 // Write the assignment code here
+class Real 
+{
+  protected:
+  double a;
+  public:
+  
+   Real (double realValue){
+    a = realValue;
+   }
 
+   Real(){}
+
+  double GetReal() const{ 
+    return a;
+    }
+
+  Real operator+ (double num){
+    return num + a;
+    }
+};
+
+class Complex:protected Real
+{
+  protected:
+  double rv1;
+  //double rv2;
+  public:
+  Complex(double r, double v){
+    Real() = r;
+    rv1 = v;
+  }
+
+  Complex(){}
+  
+  double GetImaginary() const{
+    return rv1;
+   }
+
+   Complex operator+ (double numb){
+     return rv1 + numb;
+   }
+};
+
+class Surreal:protected Complex
+{
+  protected:
+  double rv2;
+
+  public:
+
+  Surreal(double x, double y, double z){
+
+    Real() =x;
+    Complex() = y;
+    rv2 = z;
+
+  }
+
+  double GetSurreal(){
+    return rv2;
+  }
+
+  Surreal operator+(double number){
+    return rv2+number;
+  }
+};
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
